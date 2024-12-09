@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url = "postgresql://postgres:akasab$8846@localhost:5432/employee_db"
+
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Employee {
+  id            Int      @id @default(autoincrement()) // Automatically increments
+  employeeId    String   @unique
+  name          String
+  email         String   @unique
+  phone         String
+  department    String
+  dateOfJoining DateTime
+  role          String
+}
+
